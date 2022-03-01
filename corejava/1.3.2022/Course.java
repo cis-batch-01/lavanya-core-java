@@ -74,7 +74,7 @@ public class Course {
 		SimpleDateFormat sdf=  new SimpleDateFormat("dd-MM-yyyy");
 	//	return "Id=" + id + "\tTitle=" + title + "\tDescription=" + description + "\tSkillLevel=" + skillLevel
 		//		+ "\tLanguage=" + language + "\tRating=" + rating + "\tCreatedDate=" + createdDate;
-		return String.format("%-15s%-30s%-15s%-20s%-10.2f%-20s\n",title,description,skillLevel,language, rating,sdf.format(createdDate));
+		return String.format("%-15s%-15s%-30s%-15s%-20s%-10.2f%-20s\n",id,Stitle,description,skillLevel,language, rating,sdf.format(createdDate));
 	}
 	@Override
 	public int hashCode() {

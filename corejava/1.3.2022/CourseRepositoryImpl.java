@@ -15,9 +15,9 @@ public class CourseRepositoryImpl implements CourseRepository {
 					new Course(1, "C", "Complete C Syllabus", "beginner", "English", 4.0, sdf.parse("22-07-1987")));
 			courseList.add(
 					new Course(2, "C++", "Complete C++ Syllabus", "beginner", "English", 4.3, sdf.parse("12-09-1990")));
-			courseList.add(new Course(1, "Java", "Complete Java Syllabus", "intermediate", "English", 4.2,
+			courseList.add(new Course(3, "Java", "Complete Java Syllabus", "intermediate", "English", 4.2,
 					sdf.parse("09-05-1996")));
-			courseList.add(new Course(1, "HTML", "Complete HTML Syllabus", "advance", "English", 4.5,
+			courseList.add(new Course(4, "HTML", "Complete HTML Syllabus", "advance", "English", 4.5,
 					sdf.parse("19-07-1982")));
 
 		} catch (ParseException e) {
@@ -27,28 +27,35 @@ public class CourseRepositoryImpl implements CourseRepository {
 	}
 
 	public List<Course> getAll() {
-  
+
 		return courseList;
 	}
 
 	public Boolean add(Course course) {
-       
-		return null;
+
+		return courseList.add(course);
 	}
 
 	public Course get(int id) {
+		Course resCourse = null;
+		for (Course course : courseList) {
+			if (course.getId().equals(id)) {
+				resCourse = course;
+			}
+		}
 
-		return null;
+		return resCourse;
 	}
 
 	public Boolean remove(int id) {
-
-		return null;
+		Course course = get(id);
+		return courseList.remove(course);
 	}
 
 	public Boolean update(int id, Course course) {
+		courseList.remove(id - 1);
 
-		return null;
+		return courseList.add(course);
 	}
 
 }
