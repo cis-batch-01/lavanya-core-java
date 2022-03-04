@@ -25,8 +25,8 @@ public class TopicRepositoryImpl implements TopicRepository {
 
 		return topicList;
 	}
-
-	public Topic get(int id) {
+ 
+	public Topic get(int id) {                      
 		Topic resList = null;
 		for (Topic topic1 : topicList) {
 			if (topic1.gettId() == id) {
