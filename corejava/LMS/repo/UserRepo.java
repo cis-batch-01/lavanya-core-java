@@ -2,6 +2,7 @@ package com.technocis.LMS.repo;
 
 import java.util.List;
 
+import com.technocis.LMS.Topic;
 import com.technocis.LMS.User;
 
 public interface UserRepo {
@@ -16,4 +17,5 @@ public interface UserRepo {
 
 	public boolean updateUser(int id, User user);
 
+	public User selectCourse(User user, Topic topic);
 }

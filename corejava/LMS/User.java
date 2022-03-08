@@ -14,6 +14,15 @@ public class User {
 		return id;
 	}
 
+	public User(Integer id, String name, String email, Long phoneNo, List<Topic> topicList) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phoneNo = phoneNo;
+		this.topicList = topicList;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -55,19 +64,12 @@ public class User {
 		
 	}
 
-	public User(Integer id, String name, String email, Long phoneNo, List<Topic> topicList) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.phoneNo = phoneNo;
-		this.topicList = topicList;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "User id=" + id + "\nName=" + name + "\nEmail=" + email + "PhoneNo=" + phoneNo + "\nTopicList="
-				+ topicList + "]";
+		return "User id=" + id + "\nName=" + name + "\nEmail=" + email + "\nPhoneNo=" + phoneNo + "\nTopicList="
+				+ topicList + "\n";
 	}
 
 	@Override

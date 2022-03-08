@@ -1,17 +1,21 @@
 package com.technocis.LMS.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.technocis.LMS.Topic;
 import com.technocis.LMS.User;
 import com.technocis.LMS.repo.UserRepo;
 
 public class UserRepoImpl implements UserRepo {
-
+	// static List<Topic> topicList=new ArrayList<Topic>();
 	static List<User> userList = new ArrayList<User>();
+
 	static {
-		userList.add(new User(1, "lavanya", "la@gmail.com", 9845318551L, topicList);
-		//(1, "Java", "full stack", sdf.parse("21-12-2000"))
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		userList.add(new User(1, "lavanya", "lavanya@gmail.com", 8778804219L, new ArrayList<Topic>()));
+		userList.add(new User(2, "divya", "divya@gmail.com", 8778804219L, new ArrayList<Topic>()));
 	}
 
 	public List<User> getAllUser() { // to get all users
@@ -40,9 +44,25 @@ public class UserRepoImpl implements UserRepo {
 	}
 
 	public boolean updateUser(int id, User user) { // to remove by userid and edit it
-		userList.remove(id);
+		userList.remove(id-1);
 		return userList.add(user);
 
 	}
 
+	public User selectCourse(User user, Topic topic) {
+		user.getTopicList().add(topic);
+		return user;
+
+	}
+	public User FindUser(String email) {
+		//List<User> user = new ArrayList<User>();
+		User user=null;
+		for (User users : userList) {
+			if (users.getEmail().equals(email)) {
+				//user.add(users);
+				user=users;
+			}
+		}
+		return user;
+	}
 }

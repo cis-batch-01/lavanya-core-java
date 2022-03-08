@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.technocis.LMS.Topic;
+import com.technocis.LMS.User;
 import com.technocis.LMS.repo.TopicRepo;
 
 public class TopicRepoImpl implements TopicRepo {
@@ -17,6 +18,7 @@ public class TopicRepoImpl implements TopicRepo {
 			topicList.add(new Topic(1, "Java", "full stack", sdf.parse("21-12-2000")));
 			topicList.add(new Topic(2, "HTML", "front end", sdf.parse("12-02-1990")));
 		} catch (ParseException e) {
+		
 			System.out.println("date format is wrong");
 		}
 	}
@@ -36,16 +38,16 @@ public class TopicRepoImpl implements TopicRepo {
 		return resTopic;
 	}
 
-	public boolean addTopic(Topic topic) { // add a topic to the list
+	public boolean addTopic(Topic topic) {
 		return topicList.add(topic);
 	}
 
-	public boolean removeTopic(int id) { // to remove a particular topic that matches with user's id
+	public boolean removeTopic(int id) {
 		Topic topic = getTopic(id);
 		return topicList.remove(topic);
 	}
 
-	public boolean updateTopic(int id, Topic topic) { // to remove the particular id and edit it
+	public boolean updateTopic(int id, Topic topic) {
 		topicList.remove(id);
 		return topicList.add(topic);
 	}

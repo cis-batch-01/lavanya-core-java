@@ -3,6 +3,7 @@ package com.technocis.LMS.repo;
 import java.util.List;
 
 import com.technocis.LMS.Topic;
+import com.technocis.LMS.User;
 
 public interface TopicRepo {
 

@@ -44,7 +44,7 @@ public class Topic {
 
 	public Topic() {
 		super();
-	
+
 	}
 
 	public Topic(Integer tId, String tName, String tDescription, Date createdDate) {
