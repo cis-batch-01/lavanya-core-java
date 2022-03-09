@@ -1,12 +1,12 @@
-package com.technocis.LMS.impl;
+package com.technocis.lms.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.technocis.LMS.Topic;
-import com.technocis.LMS.User;
-import com.technocis.LMS.repo.UserRepo;
+import com.technocis.lms.Topic;
+import com.technocis.lms.User;
+import com.technocis.lms.repo.UserRepo;
 
 public class UserRepoImpl implements UserRepo {
 	// static List<Topic> topicList=new ArrayList<Topic>();
@@ -44,7 +44,7 @@ public class UserRepoImpl implements UserRepo {
 	}
 
 	public boolean updateUser(int id, User user) { // to remove by userid and edit it
-		userList.remove(id-1);
+		userList.remove(id);
 		return userList.add(user);
 
 	}

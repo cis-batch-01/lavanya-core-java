@@ -1,4 +1,4 @@
-package com.technocis.LMS;
+package com.technocis.lms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +70,7 @@ public class User {
 	public String toString() {
 		return "User id=" + id + "\nName=" + name + "\nEmail=" + email + "\nPhoneNo=" + phoneNo + "\nTopicList="
 				+ topicList + "\n";
+		//return String.format("%-15s%-15s%-15s%-15s%-15s", id,name,email,phoneNo);
 	}
 
 	@Override
@@ -112,6 +113,5 @@ public class User {
 		List<Topic> topicList = new ArrayList<Topic>();
 		User user = new User(id, name, email, phoneNo, topicList);
 		return user;
-
 	}
 }

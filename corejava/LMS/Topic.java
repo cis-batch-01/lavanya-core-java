@@ -1,4 +1,4 @@
-package com.technocis.LMS;
+package com.technocis.lms;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,8 +57,9 @@ public class Topic {
 
 	@Override
 	public String toString() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
 		return "Topic Id=" + tId + "\nTopic Name=" + tName + "\nTopic Description=" + tDescription + "\nCreated Date="
-				+ createdDate + "\n";
+				+ sdf.format(createdDate) + "\n";
 	}
 
 	@Override

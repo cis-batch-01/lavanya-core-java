@@ -1,9 +1,9 @@
-package com.technocis.LMS.repo;
+package com.technocis.lms.repo;
 
 import java.util.List;
 
-import com.technocis.LMS.Topic;
-import com.technocis.LMS.User;
+import com.technocis.lms.Topic;
+import com.technocis.lms.User;
 
 public interface TopicRepo {
 
