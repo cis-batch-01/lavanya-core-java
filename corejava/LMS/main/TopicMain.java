@@ -47,7 +47,7 @@ public class TopicMain {
 //			 } 				
 				break;
 			case 2:
-				System.out.println("Enter user details (id,name,email,phone number)");
+				System.out.println("Enter user details (id,name,email,phone number,role)");
 				String detail = scan.nextLine();
 				User detailUser = User.createUser(detail);
 				if (userRepoImpl.addUser(detailUser)) {

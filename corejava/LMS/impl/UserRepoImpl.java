@@ -14,8 +14,8 @@ public class UserRepoImpl implements UserRepo {
 
 	static {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		userList.add(new User(1, "lavanya", "lavanya@gmail.com", 8778804219L, new ArrayList<Topic>()));
-		userList.add(new User(2, "divya", "divya@gmail.com", 8778804219L, new ArrayList<Topic>()));
+		userList.add(new User(1, "lavanya", "lavanya@gmail.com", 8778804219L, "user",new ArrayList<Topic>()));
+		userList.add(new User(2, "divya", "divya@gmail.com", 8778804219L, "user",new ArrayList<Topic>()));
 	}
 
 	public List<User> getAllUser() { // to get all users

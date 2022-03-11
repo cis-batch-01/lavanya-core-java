@@ -8,18 +8,20 @@ public class User {
 	private String name;
 	private String email;
 	private Long phoneNo;
+	private String role;
 	private List<Topic> topicList;
 
 	public Integer getId() {
 		return id;
 	}
 
-	public User(Integer id, String name, String email, Long phoneNo, List<Topic> topicList) {
+	public User(Integer id, String name, String email, Long phoneNo,String role, List<Topic> topicList) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phoneNo = phoneNo;
+		this.role=role;
 		this.topicList = topicList;
 	}
 
@@ -51,6 +53,14 @@ public class User {
 		this.phoneNo = phoneNo;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public List<Topic> getTopicList() {
 		return topicList;
 	}
@@ -59,19 +69,21 @@ public class User {
 		this.topicList = topicList;
 	}
 
+
 	public User() {
 		super();
-		
+		// TODO Auto-generated constructor stub
 	}
 
-	
 
+		
 	@Override
 	public String toString() {
-		return "User id=" + id + "\nName=" + name + "\nEmail=" + email + "\nPhoneNo=" + phoneNo + "\nTopicList="
-				+ topicList + "\n";
-		//return String.format("%-15s%-15s%-15s%-15s%-15s", id,name,email,phoneNo);
+		return "User id=" + id + ", name=" + name + ", email=" + email + ", phoneNo=" + phoneNo + ", role=" + role
+				+ ", topicList=" + topicList + "]";
+		//return String.format("%-15s%-15s%-15s%-15s%-15s%-15s", id,name,email,phoneNo,role);
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -110,8 +122,9 @@ public class User {
 		String name = splitted[1];
 		String email = splitted[2];
 		Long phoneNo = Long.parseLong(splitted[3]);
+		String role=splitted[4];
 		List<Topic> topicList = new ArrayList<Topic>();
-		User user = new User(id, name, email, phoneNo, topicList);
+		User user=new User(id, name, email, phoneNo,role, topicList);    //role is not showing
 		return user;
 	}
 }
