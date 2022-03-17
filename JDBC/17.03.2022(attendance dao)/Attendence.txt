@@ -1,0 +1,109 @@
+import java.util.Scanner;			
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.Date;
+import java.util.SimpleDateFormat;
+
+public class Attendence {
+
+public static void main(String[] args) {
+
+Scanner scan=new Scanner(System.in);
+char option='n';
+do{
+System.out.println("1.To add a data in Attendence\n2.To select a data from Attendence\n3.To edit a data in Attendence");
+int choice=Integer.parseInt(scan.nextLine());
+switch(choice)
+{
+case 1:
+System.out.println("Enter the Attendence details");
+String details=scan.nextLine());
+String[] splitted=details.split(",");
+SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+
+try {
+class.forName("com.mysql.cj.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Attendence","root","root@12345");
+PreparedStatement pstmt=con.prepareStatement("insert into Attendence (username,status,date) values (?,?,?)");  // id auto incremenet in db
+pstmt.setString(1,getUsername());
+pstmt.setBoolean(2,Boolean.parseBoolean(getStatus()));
+pstmt.setDate(3,sdf.parse(getDate());
+	//pstmt.setDate(3,new java.sql.Date(getDate).getTime());
+int res=pstmt.executeUpdate();
+System.out.println(res>0?"Data inserted Successfully":"Date not inserted");
+
+}catch(ClassNotFoundException e) {
+e.printStackTrace();
+}catch(SQLException e) {
+e.printStackTrace();
+}
+finally {
+PrepareStatement.close();
+Connection.close();
+}
+break;
+case 2:
+System.out.println("Enter the id to be selected");
+int selectedId=Integer.parseInt(scan.nextLine());
+
+SimpleDateFormat sdf=SimpleDateFormat("dd-MM-yyyy");
+
+try {
+class.forName("com.mysql.cj.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Attendence","root","root@12345");
+PreparedStatement pstmt=con.prepareStatement("select username,status,date from Attendence where id=?"); 
+pstmt.setInt(1,id);
+ResultSet rs=pstmt.executeQuery();
+System.out.println(rs!=null?"Data displayed":"Data will not be displayed");
+}catch(ClassNotFoundException e) {
+e.printStackTrace();
+}
+}catch(SQLException e) {
+e.printStackTrace();
+}
+finally {
+PrepareStatement.close();
+Connection.close();
+}
+break;
+case 3:
+System.out.println("Enter the username to be updated from the Attendence");
+String username=scan.nextLine();
+
+try {
+class.forName("com.mysql.cj.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Attendence","root","root@12345");
+PreparedStatement pstmt=con.prepareStatement("update Attendence set id=?"); 
+pstmt.setString(1,getUsername());
+pstmt.setBoolean(2,getStatus());
+pstmt.setDate(3.sdf.parse(getDate());
+	//pstmt.new java.sql.Date(getDate().getTime());
+pstmt.setInt(4,id);
+int res=pstmt.executeUpdate();
+System.out.println(res>0?"User data updated successfully":"User data is not updated");
+catch(ClassNotFoundException e) {
+e.printStackTrace();
+}
+catch(SQLException e) {
+e.printStackTrace();
+}
+finally {
+PrepareStatement.close();
+Connection.close();
+}
+break;
+
+default:
+System.out.println("Invalid choice");
+break;
+}
+System.out.println("Do you want to continue (y/n)");
+option=scan.nextLine().charAt(0);
+}while(option=='y'||option=='Y');
+
+}
+
+}
