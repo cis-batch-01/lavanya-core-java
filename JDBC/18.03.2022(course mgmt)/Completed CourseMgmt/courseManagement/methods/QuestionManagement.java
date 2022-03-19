@@ -29,14 +29,12 @@ public class QuestionManagement {
 						System.out.println(ques);
 					}
 				}
-
 				break;
 			case 2:
 				System.out.println("Enter the id to be viewed");
 				int id = Integer.parseInt(scan.nextLine());
 				Question getQuestion = questionDAO.getQuestion(id);
-				System.out.println(getQuestion != null ? "Question viewed successfully" : "Question not found");
-				System.out.println(getQuestion);
+				System.out.println(getQuestion != null ? getQuestion : "Question not found");
 				break;
 
 			case 3:
@@ -44,7 +42,7 @@ public class QuestionManagement {
 				String details = scan.nextLine();
 				Question addedQuestion = Question.createQuestion(details);
 				Question newQuestion = questionDAO.addQuestion(addedQuestion);
-				System.out.println(newQuestion != null ? "Question added successfully" : "Question not added");
+				System.out.println(newQuestion != null ? "Question is added" : "Question not added");
 				System.out.println(newQuestion);
 				break;
 			case 4:
@@ -54,16 +52,15 @@ public class QuestionManagement {
 				if (oldQuestion == null) {
 					System.out.println("Question id not found");
 				} else {
-					System.out.println(oldQuestion + "update question");
+					System.out.println(oldQuestion + "\nupdate question");
 					System.out.println("Enter the details");
 					String UpdateDetails = scan.nextLine();
 
 					Question splittedDetails = Question.createQuestion(UpdateDetails);
 					Question ques = questionDAO.updateQuestion(updateId, splittedDetails);
-					System.out.println(ques != null ? "Question updated successfully" : "Question not updated");
+					System.out.println(ques != null ? "Question is updated" : "Question not updated");
 					System.out.println(ques);
 				}
-
 				break;
 			case 5:
 				System.out.println("Enter the id to be deleted");
@@ -76,9 +73,9 @@ public class QuestionManagement {
 				System.out.println("Invalid choice");
 				break;
 			}
-			System.out.println("Do you want to continue (y/n)");
+			System.out.println("Do you want to continue with Question Manager (y/n)");
 			option = scan.nextLine().charAt(0);
 		} while (option == 'y' || option == 'Y');
-		scan.close();
+
 	}
 }

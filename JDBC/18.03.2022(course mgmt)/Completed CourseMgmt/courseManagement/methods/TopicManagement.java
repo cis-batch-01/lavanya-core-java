@@ -1,6 +1,5 @@
 package com.courseManagement.methods;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,18 +32,15 @@ public class TopicManagement {
 			case 2:
 				System.out.println("Enter the Topic id to be viewed");
 				int topicId = Integer.parseInt(scan.nextLine());
-
 				Topic showTopic = topicDAO.getTopic(topicId);
-
-				System.out.println(showTopic != null ? "Topic is" + showTopic : "Topic id not found");
-
+				System.out.println(showTopic != null ? showTopic : "Topic id not found");
 				break;
 			case 3:
 				System.out.println("Enter the details");
 				String details = scan.nextLine();
 				Topic addedTopic = Topic.createTopic(details);
 				Topic newTopic = topicDAO.addTopic(addedTopic);
-				System.out.println(newTopic != null ? "Topic added successfully" : "Topic is not added");
+				System.out.println(newTopic != null ? "Topic is inserted" : "Topic is not added");
 				System.out.println(newTopic);
 				break;
 			case 4:
@@ -56,13 +52,13 @@ public class TopicManagement {
 				if (oldTopic == null) {
 					System.out.println("Topic id not found");
 				} else {
-					System.out.println(oldTopic + "update topic");
+					System.out.println(oldTopic);
 					System.out.println("Enter the details");
 					String updateDetails = scan.nextLine();
 
 					Topic updatedTopic = Topic.createTopic(updateDetails);
 					Topic topicNew = topicDAO.updateTopic(updatedId, updatedTopic);
-					System.out.println(topicNew != null ? "Topic updated successfully" : "Topic is not updated");
+					System.out.println(topicNew != null ? "Topic is updated" : "Topic is not updated");
 					System.out.println(topicNew);
 				}
 				break;
@@ -70,14 +66,15 @@ public class TopicManagement {
 				System.out.println("Enter the id to be deleted");
 				int deletedId = Integer.parseInt(scan.nextLine());
 				Topic deletedTopic = topicDAO.removeTopic(deletedId);
-				System.out.println(deletedTopic != null ? "Topic deleted" + deletedTopic : "Topic not deleted");
+				System.out.println(deletedTopic != null ? "Topic is deleted\n" + deletedTopic : "Topic not deleted");
 				break;
 			default:
 				System.out.println("Invalid choice");
 				break;
 			}
-			System.out.println("Do you want to continue (y/n)");
+			System.out.println("Do you want to continue with Topic Manager(y/n)");
 			option = scan.nextLine().charAt(0);
 		} while (option == 'y' || option == 'Y');
+
 	}
 }

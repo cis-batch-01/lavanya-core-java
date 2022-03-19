@@ -62,13 +62,13 @@ public class Question {
 		return "Question id: " + id + "\nTopic Id: " + topicId + "\nContent: " + content + "\nAnswer: " + answer;
 	}
 
-public static Question createQuestion(String detail) {
-String[] split=detail.split(",");
-	//Integer id = Integer.parseInt(split[0]);	//will be auto incremented 
-Integer topicId = Integer.parseInt(split[0]);
-String content = split[1];
-String answer = split[2];
-Question question=new Question(topicId,content,answer);
-return question;
-}
+	public static Question createQuestion(String detail) {
+		String[] split = detail.split(",");
+		// Integer id = Integer.parseInt(split[0]); //will be auto incremented
+		Integer topicId = Integer.parseInt(split[0]);
+		String content = split[1];
+		String answer = split[2];
+		Question question = new Question(topicId, content, answer);
+		return question;
+	}
 }
