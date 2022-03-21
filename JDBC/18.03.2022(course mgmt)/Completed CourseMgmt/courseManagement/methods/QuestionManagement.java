@@ -2,8 +2,8 @@ package com.courseManagement.methods;
 
 import java.util.Scanner;
 
-import com.courseManagement.DAO.QuestionDAO;
-import com.courseManagement.DAO.QuestionDAOImpl;
+import com.courseManagement.dao.QuestionDAO;
+import com.courseManagement.dao.QuestionDAOImpl;
 import com.courseManagement.model.Question;
 
 import java.util.List;
@@ -22,8 +22,10 @@ public class QuestionManagement {
 			case 1:
 				System.out.println("List of Questions");
 				List<Question> resQuestionList = questionDAO.getAllQuestions();
-				if (resQuestionList == null) {
-					System.out.println("Record not found");
+				//if (resQuestionList == null) {												
+					if(resQuestionList.isEmpty())
+					{
+				System.out.println("Record not found");
 				} else {
 					for (Question ques : resQuestionList) {
 						System.out.println(ques);
@@ -42,8 +44,8 @@ public class QuestionManagement {
 				String details = scan.nextLine();
 				Question addedQuestion = Question.createQuestion(details);
 				Question newQuestion = questionDAO.addQuestion(addedQuestion);
-				System.out.println(newQuestion != null ? "Question is added" : "Question not added");
-				System.out.println(newQuestion);
+				System.out.println(newQuestion != null ? addedQuestion.getContent() + " is added" : "Question not added");
+				//System.out.println(newQuestion);
 				break;
 			case 4:
 				System.out.println("Enter the id to be updated");
@@ -58,8 +60,8 @@ public class QuestionManagement {
 
 					Question splittedDetails = Question.createQuestion(UpdateDetails);
 					Question ques = questionDAO.updateQuestion(updateId, splittedDetails);
-					System.out.println(ques != null ? "Question is updated" : "Question not updated");
-					System.out.println(ques);
+					System.out.println(ques != null ?splittedDetails.getContent() +" is updated" : "Question not updated");
+					//System.out.println(ques);
 				}
 				break;
 			case 5:

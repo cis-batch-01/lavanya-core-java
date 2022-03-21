@@ -70,4 +70,5 @@ public class Topic {
 		Topic topic = new Topic(name, description, content);
 		return topic;
 	}
+
 }

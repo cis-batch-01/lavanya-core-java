@@ -1,4 +1,4 @@
-package com.courseManagement.DAO;
+package com.courseManagement.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

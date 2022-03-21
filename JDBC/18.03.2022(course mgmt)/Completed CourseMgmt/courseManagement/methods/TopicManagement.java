@@ -3,8 +3,8 @@ package com.courseManagement.methods;
 import java.util.List;
 import java.util.Scanner;
 
-import com.courseManagement.DAO.TopicDAO;
-import com.courseManagement.DAO.TopicDAOImpl;
+import com.courseManagement.dao.TopicDAO;
+import com.courseManagement.dao.TopicDAOImpl;
 import com.courseManagement.model.Topic;
 
 public class TopicManagement {
@@ -21,7 +21,8 @@ public class TopicManagement {
 			case 1:
 				System.out.println("List of topics");
 				List<Topic> resTopicList = topicDAO.getAllTopics();
-				if (resTopicList == null) {
+			//	if (resTopicList == null) {
+				if(resTopicList.isEmpty()) {								//for list we must use isempty condition because it will not be null
 					System.out.println("Record not found");
 				} else {
 					for (Topic top : resTopicList) {
@@ -40,8 +41,10 @@ public class TopicManagement {
 				String details = scan.nextLine();
 				Topic addedTopic = Topic.createTopic(details);
 				Topic newTopic = topicDAO.addTopic(addedTopic);
-				System.out.println(newTopic != null ? "Topic is inserted" : "Topic is not added");
-				System.out.println(newTopic);
+				
+				System.out.println(newTopic != null ? addedTopic.getName() + " is added" : "Topic is not added");
+
+				// System.out.println(newTopic);
 				break;
 			case 4:
 				System.out.println("Enter the id to be updated");
@@ -58,8 +61,10 @@ public class TopicManagement {
 
 					Topic updatedTopic = Topic.createTopic(updateDetails);
 					Topic topicNew = topicDAO.updateTopic(updatedId, updatedTopic);
-					System.out.println(topicNew != null ? "Topic is updated" : "Topic is not updated");
-					System.out.println(topicNew);
+				
+					System.out.println(topicNew != null ? updatedTopic.getName() + " is updated" : "Topic is not updated");
+				
+					// System.out.println(topicNew);
 				}
 				break;
 			case 5:

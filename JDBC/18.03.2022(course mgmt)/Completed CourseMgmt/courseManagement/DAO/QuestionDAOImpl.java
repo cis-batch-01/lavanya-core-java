@@ -1,4 +1,4 @@
-package com.courseManagement.DAO;
+package com.courseManagement.dao;
 
 import com.courseManagement.model.Question;
 

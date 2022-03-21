@@ -11,7 +11,7 @@ public class CourseManagement {
 		Scanner scan = new Scanner(System.in);
 		char option = 'n';
 		do {
-			System.out.println("1.Topic Management\n 2.Question Management");
+			System.out.println("1.Topic Management\n2.Question Management");
 			int choice = Integer.parseInt(scan.nextLine());
 			switch (choice) {
 			case 1:
@@ -19,7 +19,7 @@ public class CourseManagement {
 				TopicManagement.topicManager();
 				}catch(NumberFormatException e) {
 					//System.out.println(e.getMessage());
-					System.out.println("id should be in integer");
+					System.out.println("id should be in integer"+e.getMessage());
 				}
 				
 				break;
@@ -28,7 +28,7 @@ public class CourseManagement {
 				QuestionManagement.questionManager();
 				}catch(NumberFormatException e) {
 					//System.out.println(e.getMessage());
-					System.out.println("id should be in integer");
+					System.out.println("id should be in integer"+ e.getMessage());
 				}
 				break;
 			default:
