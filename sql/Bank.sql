@@ -163,16 +163,95 @@ select * from branch_master;
 customer’s firstname, branch id and loan amount for people who have taken loans..Display the 
 records sorted in ascending order based on customer number and then by branch id and then 
 by loan amount.*/
-select * from customer_master;
-select * from loan_details;
+select * from customer_master; 
 
 select cm.customer_number,cm.firstname,loan_details.branch_id,loan_details.loan_amount from customer_master as cm
 join loan_details on cm.customer_number= loan_details.customer_number
 order by cm.customer_number,loan_details.branch_id, loan_details.loan_amount;
 
-/*19. Please follow instructions given below.Write a query to display the customer number, 
-firstname, lastname for those client where total loan amount taken is maximum and at least 
-taken from 2 branches. */
-select * from loan_details;
+/*19. Write a query to display the customer number, firstname, lastname for those client where 
+total loan amount taken is maximum and at least taken from 2 branches. */
+select * from loan_details; 
+select * from customer_master; 
+
+select cm.customer_number,cm.firstname,cm.lastname,sum(loan_amount)as Total_loan_amount from loan_details
+join customer_master as cm on loan_details.customer_number=cm.customer_number
+group by loan_details.customer_number
+having count(branch_id)>=2
+order by cm.customer_number desc;
 /*group by branch id*/
 
+/*5. Write a query to display the total number of 
+withdrawals and total number of deposits being done by customer whose customer number 
+ends with 001. The query should display transaction type and the number of transactions. Give 
+an alias name as Trans_Count for number of transactions. Display the records sorted in 
+ascending order based on transaction type.*/
+select * from customer_master;
+select * from branch_master;
+select * from account_master;
+select * from transaction_details;
+select * from loan_details;
+
+-- select Transaction_Type,count(*) as Trans_Count,Customer_Number
+--  from transaction_details as t,customer_master as c where c.customer_number like "%001" group by transaction_type ;
+select * from account_master;
+select * from transaction_details;
+-- select td.transaction_type,am.customer_number, count(transaction_type)as Trans_Count 
+-- from transaction_details as td
+-- join account_master as am on td.account_number=am.account_number
+-- group by td.transaction_type having am.customer_number like "%001";
+select transaction_details.transaction_type,count(transaction_details.transaction_number) as Trans_Count from transaction_details
+join account_master as am on am.account_number=transaction_details.account_number 
+where customer_number like "%001"
+group by transaction_details.transaction_type;
+
+-- create table karthik(name varchar(10), age int);
+-- create table lavanya(name varchar(10), age int);
+-- truncate table karthik;
+-- drop table karthik;
+-- show tables;
+-- select * from karthik;
+
+/*6. Write a query to display the number of customers who 
+have registration but no account in the bank.Give the alias name as Count_Customer for 
+number of customers.
+*/
+select * from customer_master;
+select * from account_master;
+
+select count(customer_master.customer_number)as Count_Customer from customer_master
+left outer join account_master on customer_master.customer_number=account_master.customer_number where account_master.account_number is null;
+ 
+/*7. Write a query to display account number and total 
+amount deposited by each account holder ( Including the opening balance ). Give the total 
+amount deposited an alias name of Deposit_Amount. Display the records in sorted order based 
+on account number.*/
+select * from transaction_details;
+select * from account_master;
+
+select transaction_details.account_number,sum(transaction_amount)+opening_balance as Deposit_Amount from transaction_details
+join account_master on transaction_details.account_number=account_master.account_number
+ where transaction_details.transaction_type="deposit"   
+group by transaction_details.account_number;
+
+/*8. Write a query to display the number of accounts opened in each city .The Query should display Branch City and number of accounts as 
+No_of_Accounts.For the branch city where we don’t have any accounts opened display 0. 
+Display the records in sorted order based on branch city.*/
+
+select * from branch_master;
+select * from account_master;
+
+select branch_master.branch_city,count(account_master.account_number) as No_of_Accounts from branch_master
+left outer join account_master on branch_master.branch_id=account_master.branch_id
+group by branch_master.branch_city
+order by branch_master.branch_city;
+
+/*9. Write a query to display the firstname of the customers who have more than 1 account. Display the records in sorted order based on 
+firstname*/
+select * from account_master;
+select * from customer_master;
+
+select * from account_master
+join customer_master on account_master.customer_number=customer_master.customer_number
+group by account_number
+having account_number;
