@@ -242,6 +242,7 @@ insert into organization values('org02','2002-02-22','2003-03-25','wipro','www.w
 insert into organization values('org03','2003-02-25','2004-03-20','hcl','www.hcl.com','hcl.in','img03','TRIAL') ;
 insert into organization values('org04','2004-04-20','2005-03-25','vitech','www.vitech.com','vitech.in','img04','INTERNAL') ;
 insert into organization values('org05','2005-02-20','2006-03-25','intel','www.intel.com','intel.in','img05','full') ;
+insert into organization values('org06','2005-03-20','2006-03-25','cts','www.cts.com','cts.in','img12','EXTERNAL') ;
 
 select * from organization;
 select * from user;
@@ -270,6 +271,48 @@ values('user06','2021-01-10','2021-01-11','Krishika','S','krish@gmail.com',90350
 'krish@123','2021-09-17','{"door_no":9,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
 ,'img12','org05');
 
+ insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user07','2021-01-10','2021-01-11','swathi','S','swathi@gmail.com',9035003500,
+'swathi@123','2021-09-19','{"door_no":12,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org01');     -- org 1 la student
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user08','2021-12-09','2021-12-11','shalini','joy','joy@gmail.com',9035113511,
+'shajoy@123','2021-09-09','{"door_no":17,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org01');    -- org 1 la student
+ insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user09','2021-02-09','2021-02-11','sujith','joy','suji@gmail.com',9235113511,
+'sujijoy@123','2021-02-09','{"door_no":17,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org02'); -- org 2 student
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user10','2020-12-09','2020-12-11','ramya','s','ramya@gmail.com',9035112511,
+'ramya@123','2020-09-09','{"door_no":2,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org02');  -- org 2 student
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user11','2020-12-09','2020-12-11','ramya','s','rachael@gmail.com',9035112511,
+'rachael@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org03');  -- org 3 student
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user12','2020-12-09','2020-12-11','surya','s','surya@gmail.com',9035112511,
+'surya@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org03');
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user13','2020-12-09','2020-12-11','rahul','s','rahul@gmail.com',9035112511,
+'rahul@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org04');
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user14','2020-12-09','2020-12-11','preethi','s','preethi@gmail.com',9035112511,
+'preethi@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org04');
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user15','2020-12-09','2020-12-11','yuva','s','yuva@gmail.com',9035112511,
+'yuva@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org05');
+insert into user(id,created_at,updated_at,first_name,last_name,email,mobile,password,date_of_birth,address,display_picture_id,organization_id)
+values('user16','2020-12-09','2020-12-11','leela','s','leela@gmail.com',9035112511,
+'leela@123','2020-09-09','{"door_no":3,"street":"5th street","city":"arakkonam","state":"tamilNadu"}'
+,null,'org05');
+select * from user;
+
 insert into instructor (id,created_at,updated_at,bio,tagline,user_id)values('ins1','2019-09-06','2019-06-07','User','user_01','user01');
 insert into instructor (id,created_at,updated_at,bio,tagline,user_id)values('ins2','2019-09-08','2019-06-09','User','user_02','user02');
 insert into instructor (id,created_at,updated_at,bio,tagline,user_id)values('ins3','2019-09-02','2019-06-03','User','user_01','user03');
@@ -284,12 +327,25 @@ insert into role values('r004','2000-02-21','2005-03-24','instructor',' recent l
 select * from role;
 delete from role;
 set sql_safe_updates=0;
-
-insert into user_roles(`user_id`,`role_id`)values('user01','r001');
-insert into user_roles(`user_id`,`role_id`)values('user02','r002');
-insert into user_roles(`user_id`,`role_id`)values('user03','r003');
+select * from course;
+select * from user;
+insert into user_roles(`user_id`,`role_id`)values('user01','r004');   -- r004 is instructor
+insert into user_roles(`user_id`,`role_id`)values('user02','r004');
+insert into user_roles(`user_id`,`role_id`)values('user03','r004');
 insert into user_roles(`user_id`,`role_id`)values('user04','r004');
-insert into user_roles(`user_id`,`role_id`)values('user05','r005');
+insert into user_roles(`user_id`,`role_id`)values('user05','r004');
+insert into user_roles(`user_id`,`role_id`)values('user06','r001');     -- r001 is student
+insert into user_roles(`user_id`,`role_id`)values('user07','r001');
+insert into user_roles(`user_id`,`role_id`)values('user08','r001');
+insert into user_roles(`user_id`,`role_id`)values('user09','r001');
+insert into user_roles(`user_id`,`role_id`)values('user10','r001');
+insert into user_roles(`user_id`,`role_id`)values('user11','r001');
+insert into user_roles(`user_id`,`role_id`)values('user12','r001');
+insert into user_roles(`user_id`,`role_id`)values('user13','r001');
+insert into user_roles(`user_id`,`role_id`)values('user14','r001');
+insert into user_roles(`user_id`,`role_id`)values('user15','r001');
+insert into user_roles(`user_id`,`role_id`)values('user16','r001');
+delete from user_roles;
 select * from user_roles;
 
 select * from course;
@@ -315,8 +371,11 @@ level,price,rating,rating_count,instructor_id,code,banner_id,cover_id,curriculum
 values ('c005','2022-06-20','2022-06-22','CSS','CSS is used for adding styles to page','DELETED','2.8h','ADVANCED',4500,5,1,'ins5',
 'css01','img10','img11','{"Topics":"CSS Backgrounds","Topics":"CSS Comments","Topics":"CSS Navigation bar",
 "Topics":"CSS dropdowns","Topics":"CSS Colors","Topics":"CSS Animation"}','PUBLIC');
-
-
+insert into course (id,created_at,updated_at,title,description,status,duration,
+level,price,rating,rating_count,instructor_id,code,banner_id,cover_id,curriculum,visibility) 
+values ('c006','2022-01-20','2022-01-22','Javascript','JS is used for adding action to page','DELETED','2.8h','ADVANCED',4600,4,1,'ins5',
+'js01',null,null,'{"Topics":"js function","Topics":"js arrow","Topics":"js array",
+"Topics":"js map","Topics":"js comments"}','PUBLIC');
 
 insert into category_courses (category_id,course_id) values ('cat01','c001');	
 insert into category_courses (category_id,course_id) values ('cat02','c002'); 
@@ -333,6 +392,11 @@ insert into course_students (course_id,user_id) values ('c005','user05');
 insert into course_students (course_id,user_id) values ('c005','user06');
 insert into course_students (course_id,user_id) values ('c004','user01');
 select * from course_students;
+
+insert into course_pre_requisites(course_1_id,course_2_id)values('c005','c001');   -- css and html
+insert into course_pre_requisites(course_1_id,course_2_id)values('c003','c004');   -- mysql,java
+insert into course_pre_requisites(course_1_id,course_2_id)values('c002','c006');    -- nodejs  js
+select * from course_pre_requisites;
 
 /*1. Write a query to display all the available course categories?*/
 select title,description,created_at from category;
@@ -446,4 +510,68 @@ join category_courses as cc on course.id=cc.course_id
 join category on cc.category_id=category.id
 where course.status="published";
 
-/**/
+/*14.write a query to display all advanced course*/
+select *,title,description,level,duration from course
+where level="Advanced";
+
+/*15.write a query to display instructor name and email,teaching the beginner level courses*/
+select  *,user.first_name,user.email from  user 
+ join instructor on  instructor.user_id= user.id
+ join course on course.instructor_id=instructor.id where course.level="BEGINNER";
+
+/*16.write a query to fetch all the course for user from org01*/
+select * from course;
+select * from course_students;
+select * from user;
+
+select * from course
+join course_students on course.id=course_students.course_id
+join user on course_students.user_id=user.id
+join organization on user.organization_id=organization.id
+where course.visibility = "internal" ;
+select * from organizaton;
+
+-- (select if(license="internal","internal")from organization);
+
+
+
+-- where user.organization_id="org01";
+
+/*17.write a query to show all the subcategory name and its courses for 'backend'*/
+select * from category where parent_id in
+(select id from category where title="back-end"); 
+
+/*user id,org- internal courses show*/
+select * from user;
+select * from course_students;
+select * from course;
+select * from user
+join course_students as cs on user.id=cs.user_id
+join course on cs.course_id=course.id
+join organization on user.organization_id=organization.id
+ 
+where visibility = 
+(select if(license="external","public",'') from organization ) and organization.id="org02";
+select * from organization;
+select * from course;
+
+-- lis  ext   vis public
+-- where organization.id="org05";
+ -- where user.id="user03";
+ select * from user;
+ select * from user_roles;
+ select * from role;
+ select * from instructor;
+
+-- 2. student from paricular org
+-- user
+-- org
+-- select * from user
+-- join organization 
+
+select * from course_pre_requisites;
+select * from course;
+(select course.id,course.title,course.description,course.level,course_pre_requisites.course_2_id from course
+join course_pre_requisites on course.id=course_pre_requisites.course_1_id)union
+(select course.id,course.title,course.description,course.level,course_pre_requisites.course_1_id from course
+join course_pre_requisites on course.id=course_pre_requisites.course_2_id);
