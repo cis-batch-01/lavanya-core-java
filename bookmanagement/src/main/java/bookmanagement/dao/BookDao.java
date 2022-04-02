@@ -1,7 +1,6 @@
 package bookmanagement.dao;
 
 import java.util.List;
-
 import bookmanagement.model.Book;
 
 public interface BookDao {
@@ -10,5 +9,11 @@ public interface BookDao {
 
 	public Book insertBook(Book book);
 
-	public List<Book> getAllBookList(String authorId); 
+	public Book getBook(String bookId);
+
+	public Book updateBook(String bookId, Book book);
+
+	public Book deleteBook(String bookId);
+
+	public List<Book> getAllBookList(String authorId);
 }

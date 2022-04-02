@@ -81,6 +81,16 @@ public class Book {
 		this.authors = authors;
 	}
 
+	public Book(String bookId, String title, String description, String publication, Date publishedDate, Double price) {
+		super();
+		this.bookId = bookId;
+		this.title = title;
+		this.description = description;
+		this.publication = publication;
+		this.publishedDate = publishedDate;
+		this.price = price;
+	}
+
 	public Book() {
 		super();
 	}

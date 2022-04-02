@@ -7,7 +7,7 @@ import bookmanagement.dao.ConnectionUtil;
 public class ConnectionTest {
 
 	public static void main(String[] args) {
-		
-		Connection con=ConnectionUtil.getDbConnection();
+
+		Connection con = ConnectionUtil.getDbConnection();
 	}
 }
