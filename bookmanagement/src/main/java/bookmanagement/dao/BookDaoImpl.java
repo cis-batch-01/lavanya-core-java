@@ -112,28 +112,19 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	public Book getBook(String bookId) {
-
-		return null;
-	}
-
-	public Book updateBook(int id, Book book) {
-
-		return null;
-	}
-
-	public Book deleteBook(int id) {
-
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Book updateBook(String bookId, Book book) {
-
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Book deleteBook(String bookId) {
-
+		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 }

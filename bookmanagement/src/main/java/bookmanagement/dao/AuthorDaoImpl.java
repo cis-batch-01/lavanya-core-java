@@ -136,12 +136,12 @@ public class AuthorDaoImpl implements AuthorDao {
 	}
 
 	public Author updateAuthor(int authorId, Author author) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public Author deleteAuthor(int authorIid) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

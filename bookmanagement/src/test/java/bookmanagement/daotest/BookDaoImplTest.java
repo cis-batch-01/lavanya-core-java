@@ -18,16 +18,17 @@ import bookmanagement.model.Book;
 public class BookDaoImplTest {
 	public static void main(String[] args) {
 
-		// bookList();
-		// bookListByAuthorId("A002");
+		//bookList();
+		 //bookListByAuthorId("A002");
 		// authorList();
-		// authorListByBookId("b004");
+		authorListByBookId("b008");
 
-		insertBook("b008,J2ee,OOPS prog language,18-12-2021,Manoj publication,1500,A001-A004");
+		//insertBook("b008,J2ee,OOPS prog language,18-12-2021,Manoj publication,1500,A001-A004");
+		 
 //'b004','crime novel','It contains crime stories','SK_publication','2020-01-21',900
 	}
 
-	// (book_id,title,description,published_date,publication,price)
+	
 
 	private static void insertBook(String bookDetails) {
 		BookDao bookDao = new BookDaoImpl();
@@ -41,6 +42,7 @@ public class BookDaoImplTest {
 			Date published_date = sdf.parse(splitted[3]);
 			String publication = splitted[4];
 			Double price = Double.parseDouble(splitted[5]);
+			
 			String authorData = splitted[6];
 			String[] authorsArray = authorData.split("-");
 			List<Author> authorList = new ArrayList<Author>();
@@ -64,7 +66,6 @@ public class BookDaoImplTest {
 	public static void insertAuthor(String authorDetails) {
 		AuthorDao authorDao = new AuthorDaoImpl();
 		String[] spitted = authorDetails.split(",");
-
 	}
 
 	private static void authorListByBookId(String bookId) {
